@@ -1,4 +1,5 @@
-// Protractor configuration file, see link for more information
+// End-to-end test configuration for Protractor, used when running `ng e2e`.
+// See link for more information:
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
