@@ -1,3 +1,8 @@
+/**
+ * This file is the the main entry point for your app. Compiles the application with the JIT compiler
+ * and bootstraps the application's root module (AppModule) to run in the browser.
+ */
+
 import { enableProdMode }         from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guards/index';
 import { LoginComponent } from './pages/login/index';
 import { HomeComponent } from './pages/home/index';
+import { MaterialFormComponent } from './pages/material/material-form.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   // it’ll redirect to the login page.
   // It's also secured by passing the AuthGuard to the canActivate property of the route.
   { path: '', component: HomeComponent, canActivate: [ AuthGuard ] },
+
+  { path: 'material', component: MaterialFormComponent, canActivate: [ AuthGuard ] },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

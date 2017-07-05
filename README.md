@@ -136,7 +136,9 @@ You'll find the following directories and files:
 │       ├── css
 │       │   └── main.css
 │       ├── index.html         <- the single page our app is going to serve
-│       └── tsconfig.json
+│       ├── tsconfig.app.json  <- TypeScript compiler configuration for the Angular app.
+│       ├── tsconfig.spec.json <- TypeScript compiler configuration for the Unit Tests.
+│       └── ...
 ├── tools
 │   ├── README.md              <- build documentation
 │   ├── config
