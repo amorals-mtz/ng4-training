@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
         });
   }
   /*login() {
-
     // If everything goes right the service will redirect to other component,
     // otherwise it wil return false and template will display an error message.
     if(!this._service.login(this.user)) {
