@@ -1,8 +1,13 @@
 /**
  * Custom variables that are available everywhere
  *
+ * For all available variables:
  * @See node_modules/bootstrap/scss/_variables.scss
  */
+
+// Variable to point to your Font directory.
+$fa-font-path: "~font-awesome/fonts";
+
 
 // $brand-primary: crimson;
 $brand-primary: red;

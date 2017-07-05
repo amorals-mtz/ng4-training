@@ -3,8 +3,55 @@
 // Most of the time you'll want to have local styles in your components for easier maintenance,
 // but styles that affect all of your app need to be here.
 
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+// @import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+// @import '~@angular/material/prebuilt-themes/purple-green.css';
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 html,
 body {
   min-width: 100%;
   height: 100vh;
 }
+
+.help-block {
+  font-size: 12px;
+}
+
+/*
+.container {
+  width: 600px;
+  height: 350px;
+  margin: 100px auto;
+  box-shadow: 2px 3px 15px -8px;
+}
+
+.content {
+  height: 250px;
+  text-align: center;
+  padding: 70px;
+}
+
+.content span {
+  margin-bottom: 30px;
+}
+
+.title {
+  width: 100%;
+  height: 90px;
+  font-size: 28px;
+  color: white;
+  padding: 20px;
+  background: #26A69A;
+}
+
+.panel-body {
+  padding: 15px;
+}
+.panel-body span {
+  color: red;
+}
+.panel-body button {
+  float: right;
+}
+*/

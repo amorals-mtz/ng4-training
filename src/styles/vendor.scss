@@ -5,16 +5,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-/**
- * IMPORTANT: This file is a copy from node_modules/bootstrap/scss/bootstrap.scss
- */
-
 // Our own variables that override bootstrap
 @import "variables";
 
 
 /**
- * Shortcut to change all the paths to point to node_modules
+ * IMPORTANT: This file is a copy from `node_modules/bootstrap/scss/bootstrap.scss`
+ *
+ * It just modifies all the paths to include a shortcut to point to `node_modules/bootstrap/`
  */
 
 // Core variables and mixins
@@ -66,8 +64,5 @@
 @import "~bootstrap/scss/utilities";
 
 
-/**
- * Font-Awesome 4.x
- */
-$fa-font-path: "~font-awesome/fonts";
+// Font-Awesome 4.x
 @import "~font-awesome/scss/font-awesome";
