@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guards/index';
 import { LoginComponent } from './pages/login/index';
 import { HomeComponent } from './pages/home/index';
-import { MaterialFormComponent } from './pages/material/material-form.component';
+import { MaterialFormComponent } from './pages/material/index';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

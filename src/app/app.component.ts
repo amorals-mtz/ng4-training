@@ -4,9 +4,6 @@
 
 import { Component } from '@angular/core';
 
-import { LoginComponent }  from './pages/login/login.component';
-import { HomeComponent }   from './pages/home/home.component';
-
 @Component({
   moduleId: module.id,
 
