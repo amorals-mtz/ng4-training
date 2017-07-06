@@ -2,11 +2,11 @@ import { Component, OnInit, Optional }        from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar }  from '@angular/material';
 
 @Component({
-  selector: 'material-form',
-  templateUrl: './material-form.component.html',
-  styleUrls: ['./material-form.component.scss']
+  selector: 'material-showcase',
+  templateUrl: './material-showcase.component.html',
+  styleUrls: ['./material-Showcase.component.scss']
 })
-export class MaterialFormComponent implements OnInit {
+export class MaterialShowcaseComponent implements OnInit {
   isDarkTheme: boolean = false;
   title: string;
   selectedOption: string;

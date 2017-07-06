@@ -11,10 +11,11 @@ import { Component } from '@angular/core';
   // inside a custom <app-root> tag in the index.html
   selector: 'app-root',
 
-  // The 'template' property defines the HTML content.
+  // The 'template' property defines the multi-line HTML content using ES2015's template literals.
   // template: `<h1>Hello {{name}}</h1>`,
 
-  // This is telling the application where to render components.
+  // The 'templateUrl' property replace the 'template' metadata and point to a new template file
+  // that tells the application where to render components.
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

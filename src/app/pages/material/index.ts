@@ -1,1 +1,1 @@
-export * from './material-form.component';
+export * from './material-showcase.component';

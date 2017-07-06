@@ -6,7 +6,7 @@ import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 import { MaterialModule }           from '@angular/material';
 // import { MdButtonModule, MdCheckboxModule } from '@angular/material';
 
-import { MaterialFormComponent, DialogContent } from './index';
+import { MaterialShowcaseComponent, DialogContent } from './index';
 import 'hammerjs';
 
 @NgModule({
@@ -17,7 +17,7 @@ import 'hammerjs';
     /*MdButtonModule, MdCheckboxModule, …*/
   ],
   declarations: [
-    MaterialFormComponent, DialogContent
+    MaterialShowcaseComponent, DialogContent
   ],
   exports: [
     MaterialModule,
@@ -25,4 +25,4 @@ import 'hammerjs';
   ],
   entryComponents: [ DialogContent ],
 })
-export class CustomMaterialModuleModule { }
+export class CustomMaterialModule { }

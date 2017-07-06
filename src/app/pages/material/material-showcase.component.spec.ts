@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MaterialFormComponent } from './material-form.component';
+import { MaterialShowcaseComponent } from './material-showcase.component';
 
-describe('MaterialFormComponent', () => {
-  let component: MaterialFormComponent;
-  let fixture: ComponentFixture<MaterialFormComponent>;
+describe('MaterialShowcaseComponent', () => {
+  let component: MaterialShowcaseComponent;
+  let fixture: ComponentFixture<MaterialShowcaseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MaterialFormComponent ]
+      declarations: [ MaterialShowcaseComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MaterialFormComponent);
+    fixture = TestBed.createComponent(MaterialShowcaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
