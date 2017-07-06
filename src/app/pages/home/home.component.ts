@@ -7,8 +7,8 @@
 import { Component, OnInit } from '@angular/core';
 
 /*import { AuthenticationService, User}  from '../../services/_authentication.service';*/
-import { User }         from '../../models/index';
-import { UserMockService }  from '../../services/index';
+import { User }             from '../../models/index';//'app/models/user/index';
+import { UserMockService }  from '../../services/index';//'app/services/index';
 
 @Component({
   moduleId: module.id,
@@ -24,10 +24,12 @@ export class HomeComponent implements OnInit {
     /*private _service:AuthenticationService*/
     private userService: UserMockService
   ) {
+    // get the current user from local storage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    // get all users from the UserService
     this.loadAllUsers();
 
     /*

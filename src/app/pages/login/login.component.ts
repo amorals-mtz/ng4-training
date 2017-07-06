@@ -1,14 +1,14 @@
 /**
- * Uses the AuthenticationService to login and logout of the application.
- * It automatically logs the user out when it initializes (ngOnInit)
- * so the login page can also be used to logout.
+ * The Login component uses the AuthenticationService to login and logout of the application.
+ * It automatically logs the user out when it initializes (ngOnInit) so the login page
+ * can also be used to logout.
  */
 
 import { Component, OnInit }       from '@angular/core';
 import { Router, ActivatedRoute }  from '@angular/router';
 
 /*import { AuthenticationService, User}  from '../../services/_authentication.service';*/
-import { AlertService, AuthenticationService } from '../../services/index';
+import { AlertService, AuthenticationService } from '../../services/index';//'app/services/index';
 
 @Component({
   moduleId: module.id,
