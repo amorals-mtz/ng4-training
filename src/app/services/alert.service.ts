@@ -5,6 +5,7 @@
  * It has methods for displaying success and error messages, and a getMessage() method
  * that returns an Observable that is used by the alert component to subscribe to notifications
  * for whenever a message should be displayed.
+ * @see AlertComponent
  */
 
 ﻿import { Injectable }               from '@angular/core';

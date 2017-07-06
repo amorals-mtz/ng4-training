@@ -1,8 +1,8 @@
 /**
- * Properties of a user.
+ * Properties of a User.
  */
 export class User {
-  id: number;
+  _id: number;
   username: string;
   password: string;
   firstName: string;

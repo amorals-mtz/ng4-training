@@ -19,10 +19,8 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
-  error = '';
-
-  /*public user = new User('','');
-  public errorMsg = '';*/
+  /*error = '';*/
+  /*public errorMsg = '';*/
 
   constructor(
     /*private _service:AuthenticationService*/

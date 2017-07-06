@@ -5,7 +5,7 @@
 import { Component }  from '@angular/core';
 import { Router }     from '@angular/router';
 
-import { AlertService, UserService } from '../../services/index';
+import { AlertService, UserMockService } from '../../services/index';
 
 @Component({
   moduleId: module.id,
@@ -18,7 +18,7 @@ export class RegisterComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService,
+    private userService: UserMockService,
     private alertService: AlertService
   ) { }
 

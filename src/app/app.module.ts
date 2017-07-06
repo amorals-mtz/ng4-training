@@ -17,11 +17,15 @@ import { BaseRequestOptions }          from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { fakeBackendProvider }         from './core/helpers/index';
 
-// import { LoginModule }   from './pages/login/login.module';
+// used for real backend
+// import { baseHttpProvider }            from './core/helpers/index';
+
+// custom modules
 import { CustomMaterialModuleModule } from './pages/material/custom-material.module';
-import { AlertComponent } from './directives/index';
+
 import { AuthGuard } from './core/guards/index';
-import { AlertService, AuthenticationService, UserService } from './services/index';
+import { AlertComponent } from './directives/index';
+import { AlertService, AuthenticationService, UserMockService } from './services/index';
 import { LoginComponent } from './pages/login/index';
 import { RegisterComponent } from './pages/register/index';
 import { HomeComponent } from './pages/home/index';
@@ -32,7 +36,6 @@ import { HomeComponent } from './pages/home/index';
     FormsModule,
     HttpModule,
     routing,
-    // LoginModule,
     CustomMaterialModuleModule,
   ],
   declarations: [
@@ -46,12 +49,15 @@ import { HomeComponent } from './pages/home/index';
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserService,
+    UserMockService,
 
     // TODO: remove these providers to switch to a real backend
     fakeBackendProvider,
     MockBackend,
-    BaseRequestOptions
+    BaseRequestOptions,
+
+    // TODO: remove this providers to switch to a mock backend
+    // baseHttpProvider,
   ],
   bootstrap: [ AppComponent ]
 })

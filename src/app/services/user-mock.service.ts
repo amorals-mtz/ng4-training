@@ -1,6 +1,7 @@
 /**
- * The UserService contains a standard set of CRUD methods for managing users,
- * it contains a jwt() method that's used to add the JWT token from local storage
+ * The UserService contains a standard set of CRUD methods for managing users via the api.
+ *
+ * It contains a jwt() method that's used to add the JWT token from local storage
  * to the Authorization header of each http request.
  */
 
@@ -10,7 +11,7 @@ import { Http, Headers, RequestOptions, Response }  from '@angular/http';
 import { User } from '../models/index';
 
 @Injectable()
-export class UserService {
+export class UserMockService {
 
   constructor(private http: Http) { }
 
@@ -18,8 +19,8 @@ export class UserService {
     return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
   }
 
-  getById(id: number) {
-    return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+  getById(_id: number) {
+    return this.http.get('/api/users/' + _id, this.jwt()).map((response: Response) => response.json());
   }
 
   create(user: User) {
@@ -27,11 +28,11 @@ export class UserService {
   }
 
   update(user: User) {
-    return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
+    return this.http.put('/api/users/' + user._id, user, this.jwt()).map((response: Response) => response.json());
   }
 
-  delete(id: number) {
-    return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
+  delete(_id: number) {
+    return this.http.delete('/api/users/' + _id, this.jwt()).map((response: Response) => response.json());
   }
 
   // private helper methods

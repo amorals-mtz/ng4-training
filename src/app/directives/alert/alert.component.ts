@@ -1,8 +1,8 @@
 /**
- * The AlertComponent passes alert messages to the template
- * whenever a message is received from the alert service.
- * It does this by subscribing to the alert service's getMessage() method
+ * The AlertComponent passes alert messages to the template whenever a message is received
+ * from the alert service. It does this by subscribing to the alert service's getMessage() method
  * which returns an Observable.
+ * @see AlertService
  */
 
 import { Component, OnInit } from '@angular/core';

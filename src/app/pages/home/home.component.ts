@@ -1,13 +1,14 @@
 /**
- * Gets all users from the UserService and makes them available to the template
- * via the 'users' property.
+ * The HomeComponent gets the current user from local storage and all users from the user service,
+ * and makes them available to the template via the 'users' property.
+ * @see UserService
  */
 
 import { Component, OnInit } from '@angular/core';
 
 /*import { AuthenticationService, User}  from '../../services/_authentication.service';*/
 import { User }         from '../../models/index';
-import { UserService }  from '../../services/index';
+import { UserMockService }  from '../../services/index';
 
 @Component({
   moduleId: module.id,
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   // Component that only logged in users can see,
   constructor(
     /*private _service:AuthenticationService*/
-    private userService: UserService
+    private userService: UserMockService
   ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
@@ -40,8 +41,8 @@ export class HomeComponent implements OnInit {
     this._service.logout();
   }*/
 
-  deleteUser(id: number) {
-    this.userService.delete(id)
+  deleteUser(_id: number) {
+    this.userService.delete(_id)
         .subscribe(() => { this.loadAllUsers() });
   }
 
