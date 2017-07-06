@@ -19,10 +19,12 @@ import { fakeBackendProvider }         from './core/helpers/index';
 
 // import { LoginModule }   from './pages/login/login.module';
 import { CustomMaterialModuleModule } from './pages/material/custom-material.module';
-import { LoginComponent } from './pages/login/index';
-import { HomeComponent } from './pages/home/index';
+import { AlertComponent } from './directives/index';
 import { AuthGuard } from './core/guards/index';
-import { AuthenticationService, UserService } from './services/index';
+import { AlertService, AuthenticationService, UserService } from './services/index';
+import { LoginComponent } from './pages/login/index';
+import { RegisterComponent } from './pages/register/index';
+import { HomeComponent } from './pages/home/index';
 
 @NgModule({
   imports: [
@@ -35,11 +37,14 @@ import { AuthenticationService, UserService } from './services/index';
   ],
   declarations: [
     AppComponent,
+    AlertComponent,
     LoginComponent,
+    RegisterComponent,
     HomeComponent,
   ],
   providers: [
     AuthGuard,
+    AlertService,
     AuthenticationService,
     UserService,
 

@@ -2,15 +2,10 @@
 <div class="jumbotron">
   <div class="container">
     <div class="col-sm-8 col-sm-offset-2">
+      <!-- directive for displaying alert messages from anywhere in the system -->
+      <alert></alert>
       <!-- directive for displaying the contents of each view based on the current route / path. -->
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
-
-<!-- credits -->
-<div class="text-center" style="text-align:center">
-  <p>
-    {{title}} <i class="fa fa-check"></i>
-  </p>
 </div>

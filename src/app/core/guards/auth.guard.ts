@@ -1,9 +1,9 @@
 /**
- * Used to prevent unauthenticated users from accessing restricted routes.
+ * Class used to prevent unauthenticated users from accessing restricted routes.
  */
 
 import { Injectable }           from '@angular/core';
-import { Router, CanActivate }  from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -16,14 +16,14 @@ export class AuthGuard implements CanActivate {
   //   return true;
   // }
 
-  canActivate() {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('currentUser')) {
       // logged in so return true
       return true;
     }
 
-    // not logged in so redirect to login page
-    this.router.navigate(['/login']);
+    // not logged in so redirect to login page with the return url
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
     return false;
   }
 }

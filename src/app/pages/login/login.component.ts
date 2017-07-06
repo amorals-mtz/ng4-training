@@ -4,11 +4,11 @@
  * so the login page can also be used to logout.
  */
 
-import { Component, OnInit }  from '@angular/core';
-import { Router }             from '@angular/router';
+import { Component, OnInit }       from '@angular/core';
+import { Router, ActivatedRoute }  from '@angular/router';
 
 /*import { AuthenticationService, User}  from '../../services/_authentication.service';*/
-import { AuthenticationService } from '../../services/index';
+import { AlertService, AuthenticationService } from '../../services/index';
 
 @Component({
   moduleId: module.id,
@@ -18,6 +18,7 @@ import { AuthenticationService } from '../../services/index';
 export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
+  returnUrl: string;
   error = '';
 
   /*public user = new User('','');
@@ -25,19 +26,24 @@ export class LoginComponent implements OnInit {
 
   constructor(
     /*private _service:AuthenticationService*/
+    private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
     // reset login status
     this.authenticationService.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // Calling the login() function form the service when user clicks on login button.
   login() {
     this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
+    /*this.authenticationService.login(this.model.username, this.model.password)
         .subscribe(result => {
           if (result === true) {
             // login successful
@@ -47,7 +53,16 @@ export class LoginComponent implements OnInit {
             this.error = 'Username or password is incorrect';
             this.loading = false;
           }
-        });
+        });*/
+    this.authenticationService.login(this.model.username, this.model.password)
+        .subscribe(
+          data => {
+            this.router.navigate([this.returnUrl]);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          });
   }
   /*login() {
     // If everything goes right the service will redirect to other component,
