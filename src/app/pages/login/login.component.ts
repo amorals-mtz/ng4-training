@@ -7,7 +7,6 @@
 import { Component, OnInit }       from '@angular/core';
 import { Router, ActivatedRoute }  from '@angular/router';
 
-/*import { AuthenticationService, User}  from '../../services/_authentication.service';*/
 import { AlertService, AuthenticationService } from '../../services/index';//'app/services/index';
 
 @Component({
@@ -23,7 +22,6 @@ export class LoginComponent implements OnInit {
   /*public errorMsg = '';*/
 
   constructor(
-    /*private _service:AuthenticationService*/
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -52,7 +50,7 @@ export class LoginComponent implements OnInit {
             this.loading = false;
           }
         });*/
-    this.authenticationService.login(this.model.username, this.model.password)
+    this.authenticationService.login( this.model.username, this.model.password )
         .subscribe(
           data => {
             this.router.navigate([this.returnUrl]);
@@ -62,6 +60,7 @@ export class LoginComponent implements OnInit {
             this.loading = false;
           });
   }
+
   /*login() {
     // If everything goes right the service will redirect to other component,
     // otherwise it wil return false and template will display an error message.
@@ -69,5 +68,4 @@ export class LoginComponent implements OnInit {
       this.errorMsg = 'Failed to login';
     }
   }*/
-
 }

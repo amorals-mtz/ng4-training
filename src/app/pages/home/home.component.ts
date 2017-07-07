@@ -6,7 +6,6 @@
 
 import { Component, OnInit } from '@angular/core';
 
-/*import { AuthenticationService, User}  from '../../services/_authentication.service';*/
 import { User }             from '../../models/index';//'app/models/user/index';
 import { UserMockService }  from '../../services/index';//'app/services/index';
 
@@ -19,11 +18,8 @@ export class HomeComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
 
-  // Component that only logged in users can see,
-  constructor(
-    /*private _service:AuthenticationService*/
-    private userService: UserMockService
-  ) {
+  // Component that only logged in users can see.
+  constructor(private userService: UserMockService) {
     // get the current user from local storage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }

@@ -7,9 +7,9 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard }                  from './core/guards/index';
+import { HomeComponent }              from './pages/home/index';
 import { LoginComponent }             from './pages/login/index';
 import { RegisterComponent }          from './pages/register/index';
-import { HomeComponent }              from './pages/home/index';
 import { MaterialShowcaseComponent }  from './pages/material/index';
 
 // Configure routes HERE

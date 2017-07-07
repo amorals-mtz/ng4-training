@@ -25,12 +25,13 @@ import { fakeBackendProvider }         from './core/helpers/index';
 // Imports for custom modules
 import { CustomMaterialModule } from './pages/material/custom-material.module';
 
+import { AppConfig } from './core/config/index';
 import { AuthGuard } from './core/guards/index';
-import { AlertComponent } from './directives/index';
 import { AlertService, AuthenticationService, UserMockService } from './services/index';
+import { HomeComponent } from './pages/home/index';
 import { LoginComponent } from './pages/login/index';
 import { RegisterComponent } from './pages/register/index';
-import { HomeComponent } from './pages/home/index';
+import { AlertComponent } from './directives/index';
 
 @NgModule({
   imports: [
@@ -43,13 +44,14 @@ import { HomeComponent } from './pages/home/index';
   // The 'declarations' array contains a list of application components, pipes, and directives that belong to the module.
   declarations: [
     AppComponent,
-    AlertComponent,
+    HomeComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
+    AlertComponent,
   ],
   // The 'providers' array creates a singleton instance of each Service, available to all components of the app.
   providers: [
+    AppConfig,
     AuthGuard,
     AlertService,
     AuthenticationService,

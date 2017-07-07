@@ -1,1 +1,2 @@
+<!-- The 'alert component' template contains the HTML for displaying alert messages at the top of the page. -->
 ﻿<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
