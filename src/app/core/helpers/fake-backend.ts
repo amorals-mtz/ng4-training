@@ -35,7 +35,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
           connection.mockRespond(new Response(new ResponseOptions({
             status: 200,
             body: {
-              id: user.id,
+              id: user._id,
               username: user.username,
               firstName: user.firstName,
               lastName: user.lastName,
@@ -68,7 +68,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
           // find user by id in users array
           let urlParts = connection.request.url.split('/');
           let id = parseInt(urlParts[urlParts.length - 1]);
-          let matchedUsers = users.filter(user => { return user.id === id; });
+          let matchedUsers = users.filter(user => { return user._id === id; });
           let user = matchedUsers.length ? matchedUsers[0] : null;
 
           // respond 200 OK with user
@@ -92,7 +92,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         }
 
         // save new user
-        newUser.id = users.length + 1;
+        newUser._id = users.length + 1;
         users.push(newUser);
         localStorage.setItem('users', JSON.stringify(users));
 
@@ -111,7 +111,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
           let id = parseInt(urlParts[urlParts.length - 1]);
           for (let i = 0; i < users.length; i++) {
             let user = users[i];
-            if (user.id === id) {
+            if (user._id === id) {
               // delete user
               users.splice(i, 1);
               localStorage.setItem('users', JSON.stringify(users));

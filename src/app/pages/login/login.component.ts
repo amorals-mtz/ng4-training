@@ -39,17 +39,6 @@ export class LoginComponent implements OnInit {
   // Calling the login() function form the service when user clicks on login button.
   login() {
     this.loading = true;
-    /*this.authenticationService.login(this.model.username, this.model.password)
-        .subscribe(result => {
-          if (result === true) {
-            // login successful
-            this.router.navigate(['/']);
-          } else {
-            // login failed
-            this.error = 'Username or password is incorrect';
-            this.loading = false;
-          }
-        });*/
     this.authenticationService.login( this.model.username, this.model.password )
         .subscribe(
           data => {
@@ -59,6 +48,16 @@ export class LoginComponent implements OnInit {
             this.alertService.error(error);
             this.loading = false;
           });
+          /*.subscribe(result => {
+            if (result === true) {
+              // login successful
+              this.router.navigate(['/']);
+            } else {
+              // login failed
+              this.error = 'Username or password is incorrect';
+              this.loading = false;
+            }
+          });*/
   }
 
   /*login() {

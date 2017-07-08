@@ -16,7 +16,7 @@ export class RegisterComponent {
   model: any = {};
   loading = false;
 
-  constructor(
+  constructor (
     private router: Router,
     private userService: UserMockService,
     private alertService: AlertService

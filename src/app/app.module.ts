@@ -9,25 +9,27 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
-import { HttpModule }     from '@angular/http';               // <-- NgModel lives here
+import { HttpModule }     from '@angular/http';                       // <-- NgModel lives here
 
-import { AppComponent }      from './app.component';
-import { AppRoutingModule }  from './app-routing.module';     // <--- Routing Module
 
 // Imports used to create fake backend
 import { BaseRequestOptions }          from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { fakeBackendProvider }         from './core/helpers/index';
+import { fakeBackendProvider }         from './core/helpers/fake-backend';
 
 // Imports used to switch for real backend
-// import { baseHttpProvider }            from './core/helpers/index';
+// import { baseHttpProvider }            from './core/helpers/base-http';
+// import { requestOptionsProvider }      from './core/helpers/default-request-options.service';
+
+import { AppComponent }                from './app.component';
+import { AppRoutingModule }            from './app-routing.module';   // <--- Routing Module
 
 // Imports for custom modules
 import { CustomMaterialModule } from './pages/material/custom-material.module';
 
-import { AppConfig } from './core/config/index';
 import { AuthGuard } from './core/guards/index';
-import { AlertService, AuthenticationService, UserMockService } from './services/index';
+import { AlertService } from './services/index';
+import { AuthenticationService, UserMockService, UserRealService } from './services/index';
 import { HomeComponent } from './pages/home/index';
 import { LoginComponent } from './pages/login/index';
 import { RegisterComponent } from './pages/register/index';
@@ -51,19 +53,20 @@ import { AlertComponent } from './directives/index';
   ],
   // The 'providers' array creates a singleton instance of each Service, available to all components of the app.
   providers: [
-    AppConfig,
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserMockService,
 
-    // TODO: remove these providers to switch to a real backend
+    // TODO: remove these providers to switch to a real-backend
+    UserMockService,
     fakeBackendProvider,
     MockBackend,
     BaseRequestOptions,
 
-    // TODO: remove this providers to switch to a mock backend
+    // TODO: remove this providers to switch to a mock-backend
+    // UserRealService,
     // baseHttpProvider,
+    // requestOptionsProvider,
   ],
   bootstrap: [ AppComponent ]
 })

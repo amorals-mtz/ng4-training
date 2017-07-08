@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   users: User[] = [];
 
   // Component that only logged in users can see.
-  constructor(private userService: UserMockService) {
+  constructor (private userService: UserMockService) {
     // get the current user from local storage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
