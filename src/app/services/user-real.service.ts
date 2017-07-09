@@ -2,15 +2,16 @@
  * The UserService contains a standard set of CRUD methods for managing users via the api.
  */
 
-import { Injectable }                               from '@angular/core';
-import { Http, Headers, RequestOptions, Response }  from '@angular/http';
+import { Injectable }              from '@angular/core';
+import { Http, Response }          from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
 
 import { User } from '../models/index';
 
 @Injectable()
 export class UserRealService {
 
-  constructor(private http: Http) { }
+  constructor (private http: Http) { }
 
   getAll() {
     return this.http.get('/users').map((response: Response) => response.json());

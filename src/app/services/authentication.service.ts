@@ -7,22 +7,26 @@
  * of http requests made to secure api endpoints.
  */
 
-import { Injectable }               from '@angular/core';
-import { Http, Headers, Response }  from '@angular/http';
+import { Injectable }              from '@angular/core';
+import { Http, Response }          from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
 
-  constructor(private http: Http) { }
+  constructor (private http: Http) { }
 
   login(username: string, password: string) {
-    // used for real backend
-    /*return this.http.post('/users/authenticate', { username: username, password: password })*/
 
+    // used for mock-backend
     return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
+
+    // used for real-backend
+    /*return this.http.post('/users/authenticate', { username: username, password: password })*/
         .map((response: Response) => {
           // login successful if there's a jwt token in the response
           let user = response.json();
@@ -31,7 +35,8 @@ export class AuthenticationService {
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
 
-          return user;
+          // used for real-backend
+          /*return user;*/
         });
   }
 

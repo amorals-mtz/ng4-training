@@ -1,5 +1,5 @@
 /**
- * The CustomHttp service extends the default Http service to add the following features:
+ * The BaseHttp service extends the default Http service to add the following features:
  * - It automatically adds the JWT token (if logged in) to the http authorization header of all requests
  * - Prepends request urls with the api url from the appConfig file
  * - Intercepts 401 unauthorized responses from the api to automatically logout the user
@@ -19,22 +19,27 @@ import 'rxjs/add/observable/throw';
 export class BaseHttp extends Http {
 
   constructor(backend: ConnectionBackend, defaultOptions: RequestOptions) {
+    console.log('Init Http Constructor: ' + appConfig.apiUrl);
     super(backend, defaultOptions);
   }
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
+    console.log('Start GET HttpService...');
     return super.get(appConfig.apiUrl + url, this.addJwt(options)).catch(this.handleError);
   }
 
   post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
+    console.log('Start POST HttpService.');
     return super.post(appConfig.apiUrl + url, body, this.addJwt(options)).catch(this.handleError);
   }
 
   put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
+    console.log('Start PUT HttpService.');
     return super.put(appConfig.apiUrl + url, body, this.addJwt(options)).catch(this.handleError);
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
+    console.log('Start DELETE HttpService.');
     return super.delete(appConfig.apiUrl + url, this.addJwt(options)).catch(this.handleError);
   }
 
@@ -48,7 +53,9 @@ export class BaseHttp extends Http {
     // add authorization header with jwt token
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.token) {
-      options.headers.append('Authorization', 'Bearer ' + currentUser.token);
+      let tokenValue = 'Bearer ' + currentUser.token;
+      console.log("Token: [" + tokenValue + "]");
+      options.headers.append('Authorization', tokenValue);
     }
 
     return options;

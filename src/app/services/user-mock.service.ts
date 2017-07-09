@@ -5,15 +5,16 @@
  * to the Authorization header of each http request.
  */
 
-import { Injectable }                               from '@angular/core';
-import { Http, Headers, RequestOptions, Response }  from '@angular/http';
+import { Injectable }              from '@angular/core';
+import { Http, Response }          from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
 
 import { User } from '../models/index';
 
 @Injectable()
 export class UserMockService {
 
-  constructor(private http: Http) { }
+  constructor (private http: Http) { }
 
   getAll() {
     return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
