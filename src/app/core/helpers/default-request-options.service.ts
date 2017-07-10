@@ -8,7 +8,7 @@ import { BaseRequestOptions, RequestOptions } from '@angular/http';
 @Injectable()
 export class DefaultRequestOptions extends BaseRequestOptions {
 
-  constructor() {
+  constructor () {
 
     super();
 

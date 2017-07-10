@@ -18,7 +18,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class BaseHttp extends Http {
 
-  constructor(backend: ConnectionBackend, defaultOptions: RequestOptions) {
+  constructor (backend: ConnectionBackend, defaultOptions: RequestOptions) {
     console.log('Init Http Constructor: ' + appConfig.apiUrl);
     super(backend, defaultOptions);
   }
