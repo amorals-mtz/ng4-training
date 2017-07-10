@@ -15,7 +15,9 @@ export class UserRealService {
 
   getAll() {
     return this.http.get('/users')
-        .map((response: Response) => response.json());
+        .map((response: Response) => response.json())
+        .delay(2000)                  // <--- delay subscription, in this case it waits 2 seconds.
+        .retry(3);                    // <--- define a number of times to retry the request, useful when expecting network connectivity issues.
   }
 
   getById(_id: number) {

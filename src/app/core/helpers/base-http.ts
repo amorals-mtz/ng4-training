@@ -65,8 +65,9 @@ export class BaseHttp extends Http {
     return options;
   }
 
+  // Implement a method to handle errors if any
   private handleError(error: any) {
-    console.error(error);
+    console.error('An error occurred', error);
 
     if (error.status === 401) {
       // 401 unauthorized response so log user out of client

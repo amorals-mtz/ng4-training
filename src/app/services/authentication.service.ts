@@ -21,9 +21,7 @@ export class AuthenticationService {            // <-- preceded the `export` to 
 
   constructor (private http: Http) { }
 
-  /**
-   * TBD
-   */
+  // Implement a method to [...]
   login(username: string, password: string) {
 
     let body = JSON.stringify(
@@ -35,7 +33,7 @@ export class AuthenticationService {            // <-- preceded the `export` to 
         .post('/api/authenticate', body)
         // used for real-backend
         /*.post('/users/authenticate', { username: username, password: password })*/
-        .map((response: Response) => {          // Observable.map() transform the response in a format easily consumable by the observer.
+        .map((response: Response) => {          // <--- Observable.map() transform the response in a format easily consumable by the observer.
 
           // login successful if there's a jwt token in the response
           let user = response.json();
@@ -49,9 +47,7 @@ export class AuthenticationService {            // <-- preceded the `export` to 
         });
   }
 
-  /**
-   * TBD
-   */
+  // Implement a method to [...]
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

@@ -88,11 +88,12 @@ You'll find the following directories and files:
 │       │   │   ├── about.routes.ts
 │       │   │   └── index.ts
 │       │   ├── app.component.e2e-spec.ts
-│       │   ├── app.component.html
-│       │   ├── app.component.spec.ts
-│       │   ├── app.component.ts
-│       │   ├── app.module.ts
-│       │   ├── app.routes.ts
+│       │   ├── app.component.html          <- Holds the HTML view for the root component.
+│       │   ├── app.component.scss          <- Holds the Styles for the root component.
+│       │   ├── app.component.spec.ts       <- Holds the tests for the root component.
+│       │   ├── app.component.ts            <- Holds the TypeScript logic for the root component.
+│       │   ├── app-routing.module.ts       <-
+│       │   ├── app.module.ts               <- Defines the global app dependencies.
 │       │   ├── home
 │       │   │   ├── home.component.css
 │       │   │   ├── home.component.e2e-spec.ts
@@ -106,7 +107,7 @@ You'll find the following directories and files:
 │       │   ├── main-prod.ts
 │       │   ├── main.ts
 │       │   ├── operators.ts
-│       │   ├── shared
+│       │   ├── shared                      <- This directory holds any shared components we may have
 │       │   │   ├── config
 │       │   │   │   └── env.config.ts
 │       │   │   ├── index.ts
@@ -135,7 +136,7 @@ You'll find the following directories and files:
 │       │       └── more.svg
 │       ├── css
 │       │   └── main.css
-│       ├── index.html         <- the single page our app is going to serve
+│       ├── index.html         <- The single page our app is going to serve.
 │       ├── tsconfig.app.json  <- TypeScript compiler configuration for the Angular app.
 │       ├── tsconfig.spec.json <- TypeScript compiler configuration for the Unit Tests.
 │       └── ...
