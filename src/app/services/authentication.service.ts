@@ -12,22 +12,31 @@ import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
+//import 'rxjs/Rx';                               // <-- adds all the operators to Observable (map, catch, etc).
+import 'rxjs/add/operator/catch';               // <-- operators could also be added individually.
 import 'rxjs/add/operator/map';
 
-@Injectable()
-export class AuthenticationService {
+@Injectable()                                   // <-- make our service available for Dependency Injection
+export class AuthenticationService {            // <-- preceded the `export` to make the class accessible to other components
 
   constructor (private http: Http) { }
 
+  /**
+   * TBD
+   */
   login(username: string, password: string) {
 
-    // used for mock-backend
-    return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
+    let body = JSON.stringify(
+      { username: username, password: password }
+    );
 
-    // used for real-backend
-    /*return this.http.post('/users/authenticate', { username: username, password: password })*/
-        .map((response: Response) => {
+    return this.http
+        // used for mock-backend
+        .post('/api/authenticate', body)
+        // used for real-backend
+        /*.post('/users/authenticate', { username: username, password: password })*/
+        .map((response: Response) => {          // Observable.map() transform the response in a format easily consumable by the observer.
+
           // login successful if there's a jwt token in the response
           let user = response.json();
           if (user && user.token) {
@@ -40,6 +49,9 @@ export class AuthenticationService {
         });
   }
 
+  /**
+   * TBD
+   */
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

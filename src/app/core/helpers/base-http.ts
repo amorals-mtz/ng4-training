@@ -25,22 +25,26 @@ export class BaseHttp extends Http {
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
     console.log('Start GET HttpService...');
-    return super.get(appConfig.apiUrl + url, this.addJwt(options)).catch(this.handleError);
+    return super.get(appConfig.apiUrl + url, this.addJwt(options))
+        .catch(this.handleError);
   }
 
   post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
     console.log('Start POST HttpService.');
-    return super.post(appConfig.apiUrl + url, body, this.addJwt(options)).catch(this.handleError);
+    return super.post(appConfig.apiUrl + url, body, this.addJwt(options))
+        .catch(this.handleError);
   }
 
   put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
     console.log('Start PUT HttpService.');
-    return super.put(appConfig.apiUrl + url, body, this.addJwt(options)).catch(this.handleError);
+    return super.put(appConfig.apiUrl + url, body, this.addJwt(options))
+        .catch(this.handleError);
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
     console.log('Start DELETE HttpService.');
-    return super.delete(appConfig.apiUrl + url, this.addJwt(options)).catch(this.handleError);
+    return super.delete(appConfig.apiUrl + url, this.addJwt(options))
+        .catch(this.handleError);
   }
 
   // private helper methods
@@ -62,12 +66,14 @@ export class BaseHttp extends Http {
   }
 
   private handleError(error: any) {
+    console.error(error);
+
     if (error.status === 401) {
       // 401 unauthorized response so log user out of client
       window.location.href = '/login';
     }
-
-    return Observable.throw(error._body);
+    // return Observable.throw(error._body);
+    return Observable.throw(error.json().error || ' Server error.');
   }
 }
 

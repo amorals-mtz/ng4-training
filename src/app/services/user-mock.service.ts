@@ -17,23 +17,28 @@ export class UserMockService {
   constructor (private http: Http) { }
 
   getAll() {
-    return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+    return this.http.get('/api/users', this.jwt())
+        .map((response: Response) => response.json());
   }
 
   getById(_id: number) {
-    return this.http.get('/api/users/' + _id, this.jwt()).map((response: Response) => response.json());
+    return this.http.get('/api/users/' + _id, this.jwt())
+        .map((response: Response) => response.json());
   }
 
   create(user: User) {
-    return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+    return this.http.post('/api/users', user, this.jwt())
+        .map((response: Response) => response.json());
   }
 
   update(user: User) {
-    return this.http.put('/api/users/' + user._id, user, this.jwt()).map((response: Response) => response.json());
+    return this.http.put('/api/users/' + user._id, user, this.jwt())
+        .map((response: Response) => response.json());
   }
 
   delete(_id: number) {
-    return this.http.delete('/api/users/' + _id, this.jwt()).map((response: Response) => response.json());
+    return this.http.delete('/api/users/' + _id, this.jwt())
+        .map((response: Response) => response.json());
   }
 
   // private helper methods

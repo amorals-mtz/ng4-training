@@ -14,11 +14,13 @@ export class UserRealService {
   constructor (private http: Http) { }
 
   getAll() {
-    return this.http.get('/users').map((response: Response) => response.json());
+    return this.http.get('/users')
+        .map((response: Response) => response.json());
   }
 
   getById(_id: number) {
-    return this.http.get('/users/' + _id).map((response: Response) => response.json());
+    return this.http.get('/users/' + _id)
+        .map((response: Response) => response.json());
   }
 
   create(user: User) {

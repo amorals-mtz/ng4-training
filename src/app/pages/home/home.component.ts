@@ -6,20 +6,25 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { User }             from '../../models/index';//'app/models/user/index';
-import { UserMockService }  from '../../services/index';//'app/services/index';
+import { User }                              from '../../models/index';//'app/models/user/index';
+import { UserMockService, JSONFileService }  from '../../services/index';//'app/services/index';
 
 @Component({
   moduleId: module.id,
   templateUrl: './home.component.html',
+  providers: [ JSONFileService ],
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  people: any[] = [];
 
   // Component that only logged in users can see.
-  constructor (private userService: UserMockService) {
+  constructor (
+    private userService: UserMockService,
+    private localdataService: JSONFileService
+  ) {
     // get the current user from local storage
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
@@ -33,6 +38,9 @@ export class HomeComponent implements OnInit {
     // he/she is redirected to the login screen.
     this._service.checkCredentials();
     */
+
+    //
+    this.loadLocalPersons();
   }
 
   /*logout() {
@@ -47,6 +55,18 @@ export class HomeComponent implements OnInit {
   // get users from secure api end point
   private loadAllUsers() {
     this.userService.getAll()
-        .subscribe(users => { this.users = users; });
+        .subscribe(
+          users => { this.users = users; }
+        );
+  }
+
+  // get ...
+  private loadLocalPersons() {
+    this.localdataService.getPeople()
+        .subscribe(
+          people => this.people = people,
+          error => console.error('Error: ' + error),
+          () => console.log('JSON file loaded!')
+        );
   }
 }
