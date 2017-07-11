@@ -13,11 +13,16 @@ export let APP_CONFIG = new InjectionToken< IAppConfig >( 'app.config' );
 
 export const APP_DI_CONFIG: IAppConfig = {
 
+  // Endpoint to your Backend Server
   apiEndpoint: 'http://localhost:3000',
 
+  // URL to web API
   apiUrl: '/api/v1/authenticate',
   //    '/api/v1/user/1',
 
-  AUTH_KEY: 'ORC@GR(@dmin',
+  // URL to JSON file
+  fileUrl: 'app/menu.json',
+
+  OAUTH_KEY: '726fca4a820151152102cb3776cb53b7ca8de30c',
 
 };

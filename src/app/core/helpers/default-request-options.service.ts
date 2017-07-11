@@ -10,8 +10,9 @@ import { BaseRequestOptions, RequestOptions } from '@angular/http';
 export class DefaultRequestOptions extends BaseRequestOptions {
 
   constructor () {
-
     super();
+
+    console.debug("Overwriting request headers");
 
     // Set the default 'Content-Type' header to JSON
     this.headers.set('Content-Type', 'application/json');

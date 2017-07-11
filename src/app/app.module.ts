@@ -12,29 +12,29 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';                       // <-- NgModel lives here
 
 
+import { AppComponent }                from './app.component';
+import { AppRoutingModule }            from './app-routing.module';   // <--- Routing Module
+import { APP_CONFIG, APP_DI_CONFIG }   from './core/config/index';
+
 // Imports used to create fake backend
 import { BaseRequestOptions }          from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { fakeBackendProvider }         from './core/helpers/fake-backend';
 
-// Imports used to switch for real backend
-// import { baseHttpProvider }            from './core/helpers/base-http';
-// import { requestOptionsProvider }      from './core/helpers/default-request-options.service';
-
-import { AppComponent }                from './app.component';
-import { AppRoutingModule }            from './app-routing.module';   // <--- Routing Module
-import { APP_CONFIG, APP_DI_CONFIG }   from "./core/config/index";
-
 // Imports for custom modules
-import { CustomMaterialModule } from './pages/material/custom-material.module';
+import { CustomMaterialModule }        from './pages/material/custom-material.module';
 
-import { AuthGuard } from './core/guards/index';
-import { AlertService } from './services/index';
-import { AuthenticationService, UserMockService, UserRealService } from './services/index';
+// Layouts
 import { HomeComponent } from './pages/home/index';
 import { LoginComponent } from './pages/login/index';
 import { RegisterComponent } from './pages/register/index';
 import { AlertComponent } from './directives/index';
+
+import { AuthGuard }              from './core/guards/index';
+import { baseHttpProvider }       from './core/helpers/base-http';
+import { requestOptionsProvider } from './core/helpers/default-request-options.service';
+import { AlertService }           from './services/index';
+import { AuthenticationService, UserMockService, UserRealService } from './services/index';
 
 @NgModule({
   imports: [
@@ -44,7 +44,8 @@ import { AlertComponent } from './directives/index';
     AppRoutingModule,           // <-- import your routing configurations
     CustomMaterialModule,
   ],
-  // The 'declarations' array contains a list of application components, pipes, and directives that belong to the module.
+  // The 'declarations' array contains a list of application components,
+  // pipes, and directives that belong to the module.
   declarations: [
     AppComponent,
     HomeComponent,
@@ -52,10 +53,13 @@ import { AlertComponent } from './directives/index';
     RegisterComponent,
     AlertComponent,
   ],
-  // The 'providers' array creates a singleton instance of each Service, available to all components of the app.
+  // The 'providers' array creates a singleton instance of each Service,
+  // available to all components of the app.
   providers: [
     AuthGuard,
     { provide: APP_CONFIG, useValue: APP_DI_CONFIG },   // APP_CONFIG service needs to be available all across the application
+    baseHttpProvider,
+    requestOptionsProvider,     // <-- register the provider for RequestOptions
     AlertService,
     AuthenticationService,
 
@@ -67,8 +71,6 @@ import { AlertComponent } from './directives/index';
 
     // TODO: remove this providers to switch to a mock-backend
     // UserRealService,
-    // baseHttpProvider,
-    // requestOptionsProvider,
   ],
   bootstrap: [ AppComponent ]
 })

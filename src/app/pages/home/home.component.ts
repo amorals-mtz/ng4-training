@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
         .subscribe(
           people => this.people = people,
           error => console.error('Error: ' + error),
-          () => console.log('JSON file loaded!')
+          () => console.log('JSON file loaded.')
         );
   }
 }
