@@ -1,6 +1,7 @@
-/**
- * The AuthGuard is used to prevent unauthenticated users from accessing restricted routes.
- */
+// The AuthGuard is used to prevent unauthenticated users
+// from accessing restricted routes.
+// v1.0
+// Created by amorales on 03/07/17.
 
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';

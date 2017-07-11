@@ -1,6 +1,7 @@
-/**
- * Override default request headers (and other request options) to suit your application needs.
- */
+// The DefaultRequestOptions overrides default request headers
+// (and other request options) to suit your application needs.
+// v1.0
+// Created by amorales on 07/07/17.
 
 import { Injectable } from '@angular/core';
 import { BaseRequestOptions, RequestOptions } from '@angular/http';

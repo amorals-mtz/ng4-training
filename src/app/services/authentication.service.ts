@@ -7,9 +7,11 @@
  * of http requests made to secure api endpoints.
  */
 
-import { Injectable }              from '@angular/core';
+import { Injectable, Inject }      from '@angular/core';
 import { Http, Response }          from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
+
+import { APP_CONFIG, IAppConfig }  from '../core/config/index';
 
 import { Observable } from 'rxjs/Observable';
 //import 'rxjs/Rx';                               // <-- adds all the operators to Observable (map, catch, etc).
@@ -18,8 +20,16 @@ import 'rxjs/add/operator/map';
 
 @Injectable()                                   // <-- make our service available for Dependency Injection
 export class AuthenticationService {            // <-- preceded the `export` to make the class accessible to other components
+  apiEndpoint: string;
 
-  constructor (private http: Http) { }
+  constructor (
+    private http: Http,
+    @Inject(APP_CONFIG) config: IAppConfig) {   // <--- Inject the configuration object into any constructor that needs it
+
+    console.log("This is the App's Key: ", config.AUTH_KEY);
+    console.log('Init Http Constructor: ' + config.apiEndpoint);
+    this.apiEndpoint = config.apiEndpoint;
+  }
 
   // Implement a method to [...]
   login(username: string, password: string) {

@@ -23,6 +23,7 @@ import { fakeBackendProvider }         from './core/helpers/fake-backend';
 
 import { AppComponent }                from './app.component';
 import { AppRoutingModule }            from './app-routing.module';   // <--- Routing Module
+import { APP_CONFIG, APP_DI_CONFIG }   from "./core/config/index";
 
 // Imports for custom modules
 import { CustomMaterialModule } from './pages/material/custom-material.module';
@@ -54,6 +55,7 @@ import { AlertComponent } from './directives/index';
   // The 'providers' array creates a singleton instance of each Service, available to all components of the app.
   providers: [
     AuthGuard,
+    { provide: APP_CONFIG, useValue: APP_DI_CONFIG },   // APP_CONFIG service needs to be available all across the application
     AlertService,
     AuthenticationService,
 

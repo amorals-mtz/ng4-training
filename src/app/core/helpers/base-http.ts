@@ -1,14 +1,15 @@
-/**
- * The BaseHttp service extends the default Http service to add the following features:
- * - It automatically adds the JWT token (if logged in) to the http authorization header of all requests
- * - Prepends request urls with the api url from the appConfig file
- * - Intercepts 401 unauthorized responses from the api to automatically logout the user
- */
+// The BaseHttp service extends the default Http service to add the following features:
+// - Automatically adds the JWT token (if logged in) to the Http authorization header of all requests;
+// - Prepends request urls with the server endpoint from the AppConfig file;
+// - Intercepts 401 unauthorized responses from the api to automatically logout the user.
+// v1.0
+// Created by amorales on 05/07/17.
 
-import { Injectable } from "@angular/core";
-import { ConnectionBackend, XHRBackend, RequestOptions, Request, RequestOptionsArgs, Response, Http, Headers } from "@angular/http";
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { ConnectionBackend, XHRBackend, RequestOptions, Request, RequestOptionsArgs, Headers } from "@angular/http";
 
-import { appConfig } from '../config/app.config';
+import { appConfig } from '../config/index';
 
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
@@ -24,25 +25,25 @@ export class BaseHttp extends Http {
   }
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    console.log('Start GET HttpService...');
+    console.log('Starting GET Http service.');
     return super.get(appConfig.apiUrl + url, this.addJwt(options))
         .catch(this.handleError);
   }
 
   post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-    console.log('Start POST HttpService.');
+    console.log('Starting POST Http service.');
     return super.post(appConfig.apiUrl + url, body, this.addJwt(options))
         .catch(this.handleError);
   }
 
   put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-    console.log('Start PUT HttpService.');
+    console.log('Starting PUT Http service.');
     return super.put(appConfig.apiUrl + url, body, this.addJwt(options))
         .catch(this.handleError);
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    console.log('Start DELETE HttpService.');
+    console.log('Starting DELETE Http service.');
     return super.delete(appConfig.apiUrl + url, this.addJwt(options))
         .catch(this.handleError);
   }
