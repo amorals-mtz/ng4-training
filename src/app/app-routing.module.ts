@@ -13,21 +13,24 @@ import { RegisterComponent }          from './pages/register/index';
 import { MaterialShowcaseComponent }  from './pages/material/index';
 
 // Configure routes HERE
-const routes: Routes = [
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },                // <-- Default route when the app starts.
+const ROUTES: Routes = [
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },               // <--- Default route when the app starts.
+  // { path: 'blog/:id', component: FeatureDetailComponent },             // <--- Configures a parameterised route.
+  // { path: 'blog/moo', component: DashboardComponent },                 // <--- Configures a Non-parameterised route.
+
+  // { path: 'search', component: SearchComponent },
+  // { path: 'search/:term', component: SearchComponent },
 
   // This is the default, so when we launch the application it’ll go straight
   // to the HomeComponent, then as it doesn’t have any logged in user,
   // it’ll redirect to the login page.
-  { path: '', component: HomeComponent, canActivate: [ AuthGuard ] },   // <-- Secured by passing the AuthGuard to the canActivate property of the route.
+  { path: '', component: HomeComponent, canActivate: [ AuthGuard ] },  // <--- Secured by passing the AuthGuard to the canActivate property of the route.
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'material', component: MaterialShowcaseComponent, canActivate: [ AuthGuard ] },
-  // { path: 'dashboard',  component: DashboardComponent },
-  // { path: 'detail/:id', component: FeatureDetailComponent }             // <-- Configures a route with a parameter.
 
-  { path: '**', redirectTo: '' }                                        // <-- Otherwise redirect to home.
+  { path: '**', redirectTo: '' }                                       // <--- Configures a wildcard route to to intercept any invalid URLs.
 ];
 
 @NgModule({
@@ -35,8 +38,11 @@ const routes: Routes = [
   // of 'index.html' file.
   imports: [
     RouterModule.forRoot(
-      routes,
-      { enableTracing: true }   // <-- debugging purposes only)
+      ROUTES,
+      {
+        enableTracing: false,    // <--- debugging purposes only.
+        useHash: false           // <--- enables the client-side location strategy with hash fragments instead of  history API.
+      }
     )
   ],
   exports: [ RouterModule ]

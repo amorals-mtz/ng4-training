@@ -8,10 +8,11 @@
 
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';                       // <-- NgModel lives here
 
-
+// Platform and environment providers/directives/pipes
 import { AppComponent }                from './app.component';
 import { AppRoutingModule }            from './app-routing.module';   // <--- Routing Module
 import { APP_CONFIG, APP_DI_CONFIG }   from './core/config/index';
@@ -39,10 +40,11 @@ import { AuthenticationService, UserMockService, UserRealService } from './servi
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,                // <-- import this before binding with [(ngModel)]
     HttpModule,                 // <-- import providers for HTTP services
-    AppRoutingModule,           // <-- import your routing configurations
     CustomMaterialModule,
+    AppRoutingModule,           // <-- import your own routing configurations last
   ],
   // The 'declarations' array contains a list of application components,
   // pipes, and directives that belong to the module.

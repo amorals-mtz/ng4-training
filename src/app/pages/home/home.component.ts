@@ -4,7 +4,9 @@
  * @see UserService
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+
+import { slideInDownAnimation } from '../../animations'
 
 import { User }                              from '../../models/index';//'app/models/user/index';
 import { UserMockService, JSONFileService }  from '../../services/index';//'app/services/index';
@@ -13,9 +15,14 @@ import { UserMockService, JSONFileService }  from '../../services/index';//'app/
   moduleId: module.id,
   templateUrl: './home.component.html',
   providers: [ JSONFileService ],
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [ slideInDownAnimation ]
 })
 export class HomeComponent implements OnInit {
+  @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('style.display')   display = 'block';
+  @HostBinding('style.position')  position = 'absolute';
+
   currentUser: User;
   users: User[] = [];
   people: any[] = [];
