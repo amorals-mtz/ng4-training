@@ -29,7 +29,7 @@ import { CustomMaterialModule }        from './pages/material/custom-material.mo
 import { HomeComponent } from './pages/home/index';
 import { LoginComponent } from './pages/login/index';
 import { RegisterComponent } from './pages/register/index';
-import { AlertComponent } from './directives/index';
+import { AlertComponent, ComposeMessageComponent } from './directives/index';
 
 import { AuthGuard }              from './core/guards/index';
 import { baseHttpProvider }       from './core/helpers/base-http';
@@ -54,6 +54,7 @@ import { AuthenticationService, UserMockService, UserRealService } from './servi
     LoginComponent,
     RegisterComponent,
     AlertComponent,
+    ComposeMessageComponent,
   ],
   // The 'providers' array creates a singleton instance of each Service,
   // available to all components of the app.

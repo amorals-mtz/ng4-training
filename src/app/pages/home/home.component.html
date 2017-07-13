@@ -21,6 +21,7 @@
   <div *ngFor="let person of people">
     {{ person.name }}  (...form JSON file).
   </div>
+  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
   <p>See <a [routerLink]="['/material']">Material</a> components</p>
   <p><a [routerLink]="['/login']">Logout</a></p>
 </div>
