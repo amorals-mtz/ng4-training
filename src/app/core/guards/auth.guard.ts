@@ -9,7 +9,10 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor (private router: Router) { }
+  constructor (
+    private router: Router,
+    /*private authService: AuthService*/
+  ) { }
 
   // canActivate(
   //   next: ActivatedRouteSnapshot,
@@ -18,6 +21,9 @@ export class AuthGuard implements CanActivate {
   // }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    // Inject an AuthService to determine if the user is authenticated or not.
+    /*return this.authService.isLoggedIn();*/
+
     if (localStorage.getItem('currentUser')) {
       // logged in so return true
       return true;

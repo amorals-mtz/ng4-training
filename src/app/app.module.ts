@@ -56,8 +56,8 @@ import { AuthenticationService, UserMockService, UserRealService } from './servi
     AlertComponent,
     ComposeMessageComponent,
   ],
-  // The 'providers' array creates a singleton instance of each Service,
-  // available to all components of the app.
+  // The 'providers' array registers a singleton instance of each Service or Guard
+  // so they can be available to all components of the app.
   providers: [
     AuthGuard,
     { provide: APP_CONFIG, useValue: APP_DI_CONFIG },   // APP_CONFIG service needs to be available all across the application
