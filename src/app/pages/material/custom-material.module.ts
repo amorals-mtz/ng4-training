@@ -1,5 +1,5 @@
-import { CommonModule }             from '@angular/common';
 import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
 import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 
 // Import Material packages or specific component modules to use...

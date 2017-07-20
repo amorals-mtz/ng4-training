@@ -3,6 +3,13 @@
  * to login it posts the users credentials to the api and checks the response for a JWT token,
  * if there is one it means authentication was successful so the user details are added to local storage.
  *
+ * The logged in user details are stored in local storage so the user will stay logged in
+ * if they refresh the browser and also between browser sessions until they logout.
+ *
+ * If you don't want the user to stay logged in between refreshes or sessions the behaviour
+ * could easily be changed by storing user details somewhere less persistent such as session storage or
+ * in a property of the authentication service.
+ *
  * The token property is used by other services in the application to set the authorization header
  * of http requests made to secure api endpoints.
  */
