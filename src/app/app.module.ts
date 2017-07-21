@@ -13,6 +13,9 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule }     from '@angular/http';                       // <-- NgModel lives here
 import { Router }         from '@angular/router';
 
+// third party imports
+// ...
+
 // Platform and environment providers/directives/pipes
 import { AppComponent }                from './app.component';
 import { AppRoutingModule }            from './app-routing.module';   // <--- Routing Module
@@ -23,7 +26,7 @@ import { BaseRequestOptions }          from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { fakeBackendProvider }         from './core/helpers/fake-backend';
 
-// Imports for custom modules
+// Imports your application modules
 import { CustomMaterialModule }        from './pages/material/custom-material.module';
 
 // Layouts
