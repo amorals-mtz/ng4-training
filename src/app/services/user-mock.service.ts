@@ -5,11 +5,10 @@
  * to the Authorization header of each http request.
  */
 
-import { Injectable }              from '@angular/core';
-import { Http, Response }          from '@angular/http';
-import { Headers, RequestOptions } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { User } from '../models/index';
+import { User } from 'app/shared/models/index';
 
 @Injectable()
 export class UserMockService {

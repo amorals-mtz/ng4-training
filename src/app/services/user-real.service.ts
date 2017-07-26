@@ -2,11 +2,10 @@
  * The UserService contains a standard set of CRUD methods for managing users via the api.
  */
 
-import { Injectable }              from '@angular/core';
-import { Http, Response }          from '@angular/http';
-import { Headers, RequestOptions } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { User } from '../models/index';
+import { User } from 'app/shared/models/index';
 
 @Injectable()
 export class UserRealService {
@@ -16,8 +15,8 @@ export class UserRealService {
   getAll() {
     return this.http.get('/users')
         .map((response: Response) => response.json())
-        .delay(2000)                  // <--- delay subscription, in this case it waits 2 seconds.
-        .retry(3);                    // <--- define a number of times to retry the request, useful when expecting network connectivity issues.
+        .delay(2000)    // <--- delay subscription, in this case it waits 2 seconds.
+        .retry(3);      // <--- define a number of times to retry the request, useful when expecting network connectivity issues.
   }
 
   getById(_id: number) {

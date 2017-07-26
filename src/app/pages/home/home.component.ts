@@ -8,8 +8,8 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { slideInDownAnimation } from 'app/animations'
 
-import { User }                              from 'app/models/index';
 import { UserMockService, JSONFileService }  from 'app/services/index';
+import { User }                              from 'app/shared/models/index';
 
 @Component({
   moduleId: module.id,

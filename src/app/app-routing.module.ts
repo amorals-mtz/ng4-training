@@ -6,10 +6,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent }              from './pages/home/index';
-import { LoginComponent }             from './pages/login/index';
-import { RegisterComponent }          from './pages/register/index';
-import { MaterialShowcaseComponent }  from './pages/material/index';
+import { HomeComponent }              from './pages/home/home.component';
+import { LoginComponent }             from './pages/login/login.component';
+import { RegisterComponent }          from './pages/register/register.component';
+import { MaterialShowcaseComponent }  from './pages/material/material-showcase.component';
 import { ComposeMessageComponent }    from './directives/index';
 import { AuthGuard }                  from './core/guards/index';
 
@@ -40,7 +40,7 @@ const ROUTES: Routes = [
     path: 'compose', component: ComposeMessageComponent, outlet: 'popup'
   },
   {        // <--- Configures a Lazy loading route with an unauthorized loading guard.
-    path: 'http', loadChildren: './pages/http-demo/http-demo.module#HttpDemoModule', canLoad: [ AuthGuard ]
+    path: 'http', loadChildren: './pages/demos/http-demo/http-demo.module#HttpDemoModule', canLoad: [ AuthGuard ]
   },
   /** { path: '**', component: PageNotFoundComponent } */
   { path: '**', redirectTo: '' }    // <--- Configures a wildcard route to to intercept any invalid URLs.

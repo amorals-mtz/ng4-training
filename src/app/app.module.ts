@@ -30,9 +30,9 @@ import { fakeBackendProvider }         from './core/helpers/fake-backend';
 import { CustomMaterialModule }        from './pages/material/custom-material.module';
 
 // Layouts
-import { HomeComponent } from './pages/home/index';
-import { LoginComponent } from './pages/login/index';
-import { RegisterComponent } from './pages/register/index';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { AlertComponent, ComposeMessageComponent } from './directives/index';
 
 import { AuthGuard }              from './core/guards/index';

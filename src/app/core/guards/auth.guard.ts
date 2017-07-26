@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     // Inject an AuthService to determine if the user is authenticated or not.
     /*return this.authService.isLoggedIn();*/
-    console.log('AuthGuard#canActivate called...');
+    console.log('AuthGuard#canActivate called!');
 
     // Store the attempted URL for redirecting
     const _url: string = state.url;
@@ -31,13 +31,13 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    console.log('AuthGuard#canActivateChild called...');
+    console.log('AuthGuard#canActivateChild called!');
 
     return this.canActivate(route, state);
   }
 
   canLoad(route: Route): boolean {
-    console.log('AuthGuard#canLoad called...');
+    console.log('AuthGuard#canLoad called!');
 
     const _url = `/${route.path}`;
 
