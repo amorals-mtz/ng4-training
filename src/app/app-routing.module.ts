@@ -6,41 +6,43 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard }                  from './core/guards/index';
 import { HomeComponent }              from './pages/home/index';
 import { LoginComponent }             from './pages/login/index';
 import { RegisterComponent }          from './pages/register/index';
 import { MaterialShowcaseComponent }  from './pages/material/index';
 import { ComposeMessageComponent }    from './directives/index';
+import { AuthGuard }                  from './core/guards/index';
 
 // Configure routes HERE
 const ROUTES: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },     // <--- Default route when the app starts.
   // { path: 'blog/:id', component: FeatureDetailComponent },   // <--- Configures a parameterised route.
   // { path: 'blog/moo', component: DashboardComponent },       // <--- Configures a Non-parameterised route.
-
   // { path: 'search', component: SearchComponent },
   // { path: 'search/:term', component: SearchComponent },
 
   // This is the default, so when we launch the application it’ll go straight
   // to the HomeComponent, then as it doesn’t have any logged in user,
   // it’ll redirect to the login page.
-  {                                 // <--- Secured by passing the AuthGuard to the canActivate property of the route.
-    path: '',
-    component: HomeComponent,
-    canActivate: [ AuthGuard ]
+  {        // <--- Secured by passing the AuthGuard to the canActivate property of the route.
+    path: '', component: HomeComponent, canActivate: [ AuthGuard ]
   },
-
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'material', component: MaterialShowcaseComponent, canActivate: [ AuthGuard ] },
-
-  {                                 // <--- Configures a Secondary route with a named outlet.
-    path: 'compose',
-    component: ComposeMessageComponent,
-    outlet: 'popup'
+  {
+    path: 'login', component: LoginComponent
   },
-
+  {
+    path: 'register', component: RegisterComponent
+  },
+  {
+    path: 'material', component: MaterialShowcaseComponent, canActivate: [ AuthGuard ]
+  },
+  {        // <--- Configures a Secondary route with a named outlet.
+    path: 'compose', component: ComposeMessageComponent, outlet: 'popup'
+  },
+  {        // <--- Configures a Lazy loading route with an unauthorized loading guard.
+    path: 'http', loadChildren: './pages/http-demo/http-demo.module#HttpDemoModule', canLoad: [ AuthGuard ]
+  },
+  /** { path: '**', component: PageNotFoundComponent } */
   { path: '**', redirectTo: '' }    // <--- Configures a wildcard route to to intercept any invalid URLs.
 ];
 

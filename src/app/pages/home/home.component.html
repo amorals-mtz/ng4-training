@@ -10,7 +10,7 @@
 </div> -->
 <div class="col-md-6 col-md-offset-3">
   <h1>Hi {{currentUser.firstName}}!</h1>
-  <p>You're logged in with:<br><a href="https://jwt.io/">JSON Web Tokens (JWT)</a>!!</p>
+  <p>You're logged in using:<br><a href="https://jwt.io/">JSON Web Tokens (JWT)</a>!!</p>
   <h3>All registered users (from secure api end point):</h3>
   <ul>
     <li *ngFor="let user of users">
@@ -21,7 +21,18 @@
   <div *ngFor="let person of people">
     {{ person.name }}  (...form JSON file).
   </div>
-  <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-  <p>See <a [routerLink]="['/material']">Material</a> components</p>
-  <p><a [routerLink]="['/login']">Logout</a></p>
+  <br>
+  <div class="row">
+    <p>See <a [routerLink]="['/material']">Material</a> components</p>
+  </div>
+  <div class="row">
+    <p>See <a [routerLink]="['/http']">HTTP</a> examples</p>
+  </div>
+  <div class="row">
+    <p>
+      <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact </a>
+       |
+      <a [routerLink]="['/login']"> Logout</a>
+    </p>
+  </div>
 </div>
