@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class JSONFileService {
 
-  constructor (private http: Http) {}
+  constructor (private http: Http) { }
 
   getPeople() {
     return this.http.get('assets/data/people.json')
@@ -19,6 +19,7 @@ export class JSONFileService {
 
     // TypeScript/ES6
     // .map(response => response.json())
+
     // ES5
     // .map(function(response){ return response.json(); })
   }

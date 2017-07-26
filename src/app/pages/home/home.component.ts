@@ -6,16 +6,16 @@
 
 import { Component, OnInit, HostBinding } from '@angular/core';
 
-import { slideInDownAnimation } from '../../animations'
+import { slideInDownAnimation } from 'app/animations'
 
-import { User }                              from '../../models/index';//'app/models/user/index';
-import { UserMockService, JSONFileService }  from '../../services/index';//'app/services/index';
+import { User }                              from 'app/models/index';
+import { UserMockService, JSONFileService }  from 'app/services/index';
 
 @Component({
   moduleId: module.id,
   templateUrl: './home.component.html',
-  providers: [ JSONFileService ],
   styleUrls: ['./home.component.scss'],
+  providers: [ JSONFileService ],
   animations: [ slideInDownAnimation ]
 })
 export class HomeComponent implements OnInit {
