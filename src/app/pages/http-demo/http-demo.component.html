@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="m-t-1">
+    <button class="btn btn-primary" (click)="clickGET()">GET</button>
+    <button class="btn btn-primary" (click)="clickPOST()">POST</button>
+    <button class="btn btn-primary" (click)="clickPUT()">PUT</button>
+    <button class="btn btn-primary" (click)="clickDELETE()">DELETE</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="m-t-1">
+    <button class="btn btn-secondary" (click)="clickGETAsPromise()">As Promise</button>
+    <button class="btn btn-secondary" (click)="clickGETAsPromiseError()">Error as Promise</button>
+    <button class="btn btn-secondary" (click)="clickGETAsObservableError()">Error as Observable</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="m-t-1">
+    <button class="btn btn-danger" (click)="clickGETWithHeaders()">With Headers</button>
+  </div>
+</div>
+<div class="container">
+  <b>Angular 2 Component Using Observables!</b>
+
+  <h6>VALUES:</h6>
+  <div *ngFor="let value of values">
+    - {{ value }}
+  </div>
+
+  <h6>ERRORs:</h6>
+  <div>{{ anyErrors }}</div>
+
+  <h6>FINISHED:</h6>
+  <div>{{ isComplete }}</div>
+
+  <button class="btn btn-secondary" (click)="initObservable()">Start Observable</button>
+</div>

@@ -14,21 +14,28 @@
  * of http requests made to secure api endpoints.
  */
 
-import { Injectable }              from '@angular/core';
-import { Http, Response }          from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Response, Headers } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
-//import 'rxjs/Rx';                               // <-- adds all the operators to Observable (map, catch, etc).
-import 'rxjs/add/operator/catch';               // <-- operators could also be added individually.
+// import 'rxjs/RX';                           // <--- import all RxJS operators, but isn't recommended for production.
+import 'rxjs/add/operator/catch';           // <--- operators could also be added individually.
 import 'rxjs/add/operator/map';
 
-@Injectable()                                   // <-- make our service available for Dependency Injection
-export class AuthenticationService {            // <-- preceded the `export` to make the class accessible to other components
+@Injectable()                               // <--- make our service available for Dependency Injection
+export class AuthenticationService {        // <--- preceded the `export` to make the class accessible to other components
 
+  /**
+   * Injected the Http service onto own service
+   * and stored it as a private property.
+   */
   constructor (private http: Http) { }
 
   // Implement a method to [...]
   login(username: string, password: string) {
+    /*var body = `username=${username}&password=${password}`;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');*/
 
     let body = JSON.stringify({ username: username, password: password });
 
@@ -47,9 +54,9 @@ export class AuthenticationService {            // <-- preceded the `export` to 
     localStorage.removeItem('currentUser');
   }
 
-  //----------------------------------
+  // ----------------------------------
   //  private helper methods
-  //----------------------------------
+  // ----------------------------------
 
   private extractData (response: Response) {
     // let body = res.json();
