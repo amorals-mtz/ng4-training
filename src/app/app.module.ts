@@ -9,8 +9,8 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule }    from '@angular/forms';
-import { HttpModule }     from '@angular/http';                       // <-- NgModel lives here
+import { FormsModule }    from '@angular/forms';                      // <-- NgModel lives here
+import { HttpModule }     from '@angular/http';
 import { Router }         from '@angular/router';
 
 // third party imports
