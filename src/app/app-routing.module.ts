@@ -42,6 +42,9 @@ const ROUTES: Routes = [
   {        // <--- Configures a Lazy loading route with an unauthorized loading guard.
     path: 'http', loadChildren: './pages/demos/http-demo/http-demo.module#HttpDemoModule', canLoad: [ AuthGuard ]
   },
+  {
+    path: 'forms', loadChildren: './pages/demos/forms-demo/forms-demo.module#FormsDemoModule', canLoad: [ AuthGuard ]
+  },
   /** { path: '**', component: PageNotFoundComponent } */
   { path: '**', redirectTo: '' }    // <--- Configures a wildcard route to to intercept any invalid URLs.
 ];
@@ -54,7 +57,7 @@ const ROUTES: Routes = [
       ROUTES,
       {
         enableTracing: false,    // <--- debugging purposes only.
-        useHash: false           // <--- enables the client-side location strategy with hash fragments instead of  history API.
+        useHash: true            // <--- enables the client-side location strategy with hash fragments instead of  history API.
       }
     )
   ],

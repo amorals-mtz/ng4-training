@@ -1,5 +1,5 @@
 /**
- * Properties of a User.
+ * Properties of a User object.
  */
 export class User {
   _id: number;
