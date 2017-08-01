@@ -9,11 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsDemoRoutingModule } from './forms-demo-routing.module';
 
 // layouts
-import { FormsFundamentalsComponent } from './fundamentals/forms-fundamentals.component';
 import { ModelDrivenFormComponent } from './model-driven/model-driven-form.component';
 import { TemplateDrivenFormComponent } from './template-driven/template-driven-form.component';
-import { KeyUpv1Component, KeyUpv2Component, KeyUpv3Component, KeyUpv4Component } from './shared/keyup.component';
-import { LoopbackComponent } from './shared/keyup.component';
 
 // other imports
 // ...
@@ -25,11 +22,8 @@ import { LoopbackComponent } from './shared/keyup.component';
     FormsDemoRoutingModule,
   ],
   declarations: [
-    FormsFundamentalsComponent,
     ModelDrivenFormComponent,
     TemplateDrivenFormComponent,
-    KeyUpv1Component, KeyUpv2Component, KeyUpv3Component, KeyUpv4Component,
-    LoopbackComponent,
   ]
 })
 export class FormsDemoModule { }

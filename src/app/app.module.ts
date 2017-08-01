@@ -2,8 +2,6 @@
  * Root module that tells Angular how to assemble the application
  * along with metadata about the module.
  * Every component must be declared in one —and only one— Angular module.
- *
- * @preferred
  */
 
 import { NgModule }       from '@angular/core';
