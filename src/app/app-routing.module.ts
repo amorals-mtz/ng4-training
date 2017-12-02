@@ -3,8 +3,9 @@
  * each route contains a path and associated component.
  */
 
-import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule }              from '@angular/core';
+import { RouterModule, Routes }  from '@angular/router';
+/* import { PreloadAllModules }     from '@angular/router'; */
 
 import { HomeComponent }              from './pages/home/home.component';
 import { LoginComponent }             from './pages/login/login.component';
@@ -45,22 +46,22 @@ const ROUTES: Routes = [
   {
     path: 'forms', loadChildren: './pages/demos/forms-demo/forms-demo.module#FormsDemoModule', canLoad: [ AuthGuard ]
   },
-  /** { path: '**', component: PageNotFoundComponent } */
+  /* { path: '**', component: PageNotFoundComponent } */
   { path: '**', redirectTo: '' }    // <--- Configures a wildcard route to to intercept any invalid URLs.
 ];
 
 @NgModule({
-  // Ensure there is a <base href="/"> element at the top of the <head> section
-  // of 'index.html' file.
+  // Ensure there is a <base href="/"> element at the top of the <head> section of 'index.html' file.
   imports: [
     RouterModule.forRoot(
       ROUTES,
       {
         enableTracing: false,    // <--- debugging purposes only.
         useHash: true            // <--- enables the client-side location strategy with hash fragments instead of  history API.
+        /** preloadingStrategy: PreloadAllModules */
       }
     )
   ],
   exports: [ RouterModule ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
