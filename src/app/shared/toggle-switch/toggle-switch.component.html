@@ -1,0 +1,13 @@
+<!-- Rectangular switch -->
+<label class="switch">
+  <input type="checkbox"
+      [checked]="selected" (change)="onChange($event)">
+  <span class="slider"></span>
+</label>
+
+<!-- Rounded switch -->
+<label class="switch">
+  <input type="checkbox"
+      [checked]="!selected" (change)="onChange($event)">
+  <span class="slider round"></span>
+</label>
